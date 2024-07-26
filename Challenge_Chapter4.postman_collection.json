@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "21d0b08d-63b8-4262-aa94-8c24d50c09b4",
+		"name": "Challenge_Chapter4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "addCustomers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"James King\",\r\n    \"phone\": \"555-7891\",\r\n    \"email\": \"tes12@gmail.com\",\r\n    \"password\": \"123password\",\r\n    \"identity_type\": \"SIM\",\r\n    \"identity_number\": \"12345678\",\r\n    \"address\": \"987 Birch Road, Springfield, IL 62719\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/user/createCustomer",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"user",
+								"createCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/user/5ed145f4-73a4-4219-bc16-ce651fc0517e",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"user",
+								"5ed145f4-73a4-4219-bc16-ce651fc0517e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account_type",
+			"item": [
+				{
+					"name": "addAccountType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Tabungan Hari Tua\",\r\n    \"description\": \"Tabungan untuk hari tua yang lebih makmur dan sejahtera\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/typeaccount/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"typeaccount",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllAccountType",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/typeaccount/type",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"typeaccount",
+								"type"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "addAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\":\"b4806913-35e6-43fd-8240-e6ed90762367\",\r\n    \"account_type\":2,\r\n    \"bank_name\":\"Bank Binar Academy\",\r\n    \"balance\": 500000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/account/createAccount",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"account",
+								"createAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/account",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccountbyId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/account/c6054ba1-c0a3-49d2-9bee-c6134b31f5bd",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"account",
+								"c6054ba1-c0a3-49d2-9bee-c6134b31f5bd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "addTransaction-Transfer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account_id\":\"c6054ba1-c0a3-49d2-9bee-c6134b31f5bd\",\r\n    \"account_destination\":\"dc9578db-6e1b-4a9f-b8fa-12d2cb7ab3b6\",\r\n    \"transaction_type\":\"Transfer\",\r\n    \"amount\":1000000,\r\n    \"transaction_status\":\"Success\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/transaction/createTransaction",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transaction",
+								"createTransaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTransaction-Withdraw",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account_id\":\"c6054ba1-c0a3-49d2-9bee-c6134b31f5bd\",\r\n    \"account_destination\":\"c6054ba1-c0a3-49d2-9bee-c6134b31f5bd\",\r\n    \"transaction_type\":\"Withdraw\",\r\n    \"amount\":1000000,\r\n    \"transaction_status\":\"Success\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/transaction/createTransaction",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transaction",
+								"createTransaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTransaction-Deposit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account_id\":\"c6054ba1-c0a3-49d2-9bee-c6134b31f5bd\",\r\n    \"account_destination\":\"c6054ba1-c0a3-49d2-9bee-c6134b31f5bd\",\r\n    \"transaction_type\":\"Deposit\",\r\n    \"amount\":2000000,\r\n    \"transaction_status\":\"Success\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/transaction/createTransaction",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transaction",
+								"createTransaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllTransaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/transaction/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transaction",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTransactionbyId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/transaction/clz2jlzuc0001h3xq5ml39z07",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transaction",
+								"clz2jlzuc0001h3xq5ml39z07"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
